@@ -2,7 +2,7 @@
 const GITHUB_USER = "nathaliatito336-art"; // Imong GitHub username
 const GITHUB_REPO = "Crrd1";       // Repository name
 const FILE_PATH = "data.json";              // JSON file path sa repo
-const GITHUB_TOKEN = "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"; // Must have repo access
+const GITHUB_TOKEN = "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"; // Must have repo access
 
 // ---------- DOM Elements ----------
 const loginSection = document.querySelector("#loginSection");
