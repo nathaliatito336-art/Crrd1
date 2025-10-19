@@ -1,7 +1,7 @@
 // ---------- CONFIG: GitHub JSON Storage ----------
-const GITHUB_USER = "nathaliatito336-art";
-const GITHUB_REPO = "Crrd1";
-const FILE_PATH = "data.json";
+const GITHUB_USER = "nathaliatito336-art"; // Imong GitHub username
+const GITHUB_REPO = "Crrd1";       // Repository name
+const FILE_PATH = "data.json";              // JSON file path sa repo
 const GITHUB_TOKEN = "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"; // Must have repo access
 
 // ---------- DOM Elements ----------
