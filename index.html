@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crown Regency Residences Davao - Activity Report</title>
-
-  <!-- Marked for Markdown rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Crown Regency Residences Davao - Activity Report System</h1>
+    <h1>Crown Regency Residences Davao</h1>
+    <h2>Activity Report System</h2>
   </header>
 
-  <div class="container">
+  <main class="container">
+
     <!-- LOGIN -->
-    <div id="loginSection" class="panel">
+    <section id="loginSection" class="panel">
       <h2>Login</h2>
       <input id="loginUsername" type="text" placeholder="Username" />
       <input id="loginPassword" type="password" placeholder="Password" />
       <button id="loginBtn">Login</button>
-      <p>Don't have an account? <a href="#" id="toRegister">Register here</a></p>
-    </div>
+      <p>No account? <a href="#" id="toRegister">Register</a></p>
+    </section>
 
     <!-- REGISTER -->
-    <div id="registerSection" class="panel hidden">
+    <section id="registerSection" class="panel hidden">
       <h2>Register</h2>
       <input id="regUsername" type="text" placeholder="Username" />
       <input id="regPassword" type="password" placeholder="Password" />
@@ -35,82 +33,45 @@
         <option value="Housekeeping">Housekeeping</option>
         <option value="Maintenance">Maintenance</option>
         <option value="Front Office">Front Office</option>
-        <option value="F&B">F&B</option>
-        <option value="GM">GM</option>
+        <option value="GM">General Manager</option>
       </select>
-      <div id="gmCodeContainer" class="hidden">
-        <input id="gmCode" type="text" placeholder="Approval code" />
-      </div>
+      <input id="gmCode" type="text" placeholder="GM Code (for GM only)" class="hidden" />
       <button id="registerBtn">Register</button>
-      <p>Already have an account? <a href="#" id="toLogin">Login here</a></p>
-    </div>
+      <p>Already registered? <a href="#" id="toLogin">Login</a></p>
+    </section>
 
-    <!-- PROFILE -->
-    <div id="profileSection" class="panel hidden">
-      <div class="profile-header">
-        <h2>Welcome, <span id="displayUsername"></span> (<span id="displayDept"></span>)</h2>
-        <div class="top-buttons">
-          <button id="logoutBtn">Logout</button>
-        </div>
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="panel hidden">
+      <h2 id="welcomeText"></h2>
+      <div id="userDept"></div>
+      <button id="viewReportsBtn">View Reports</button>
+      <button id="addReportBtn">Add Report</button>
+      <button id="logoutBtn">Logout</button>
+      <div id="gmTools" class="hidden">
+        <h3>GM Tools</h3>
+        <button id="eraseUserBtn">Erase User</button>
       </div>
-      <div class="profile-content">
-        <div class="profile-pic">
-          <img id="profileImg" src="default-profile.png" alt="Profile" />
-        </div>
-        <input id="uploadPic" type="file" accept="image/*" class="hidden" />
-      </div>
+    </section>
 
-      <div class="activity-section">
-        <h3>New Activity Report</h3>
-        <input id="activityDate" type="date" />
-        <textarea id="activityInput" placeholder="Enter report details (Markdown supported)"></textarea>
-        <input id="activityImages" type="file" accept="image/*" multiple />
-        <div class="progress-bar"><div id="progressFill"></div></div>
-        <div class="activity-actions">
-          <button id="addActivity">Submit Report</button>
-          <button id="clearForm">Clear Form</button>
-        </div>
+    <!-- REPORTS -->
+    <section id="reportsSection" class="panel hidden">
+      <h2>Reports</h2>
+      <div id="reportsList"></div>
+      <button id="backDashboard">Back</button>
+    </section>
 
-        <div id="gmEraseContainer" class="hidden gm-panel">
-          <h4>GM - Erase User</h4>
-          <select id="eraseSelect"><option value="">Select User</option></select>
-          <div id="eraseInfo" class="erase-info hidden">
-            <label>Username</label>
-            <input id="eraseUsername" readonly />
-            <label>Department</label>
-            <input id="eraseDept" readonly />
-            <label>Password</label>
-            <input id="erasePassword" readonly />
-          </div>
-          <button id="eraseUserBtn">Erase Selected User</button>
-        </div>
+    <!-- ADD REPORT -->
+    <section id="addReportSection" class="panel hidden">
+      <h2>Add Activity Report</h2>
+      <textarea id="reportText" rows="5" placeholder="Write your report here..."></textarea>
+      <input id="reportDate" type="date" />
+      <input id="reportImage" type="file" accept="image/*" multiple />
+      <button id="saveReportBtn">Save Report</button>
+      <button id="cancelReportBtn">Cancel</button>
+    </section>
 
-        <hr>
-
-        <h3>View Reports</h3>
-        <div class="filters">
-          <input id="searchText" type="text" placeholder="Search text..." />
-          <select id="filterDept">
-            <option value="">All Departments</option>
-            <option value="Housekeeping">Housekeeping</option>
-            <option value="Maintenance">Maintenance</option>
-            <option value="Front Office">Front Office</option>
-            <option value="F&B">F&B</option>
-            <option value="GM">GM</option>
-          </select>
-          <div class="date-range">
-            <input id="fromDate" type="date" />
-            <input id="toDate" type="date" />
-          </div>
-          <button id="filterReports">Apply Filters</button>
-          <button id="clearFilters">Clear</button>
-        </div>
-
-        <div id="reportsList"></div>
-      </div>
-    </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
-  </html>
+        </html>
